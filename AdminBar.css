@@ -8,7 +8,7 @@
 */
 
 #adminbar{
-	position: fixed; left: 0px; top: 100px; width: 300px;
+	position: fixed; left: 0px; top: 0px; width: 300px;
 	background: #dbe9ee;
 	font: normal 12px/20px "Lucida Grande", Tahoma, sans-serif;
 }
@@ -16,18 +16,17 @@
 	/* main color settings for links */
 	#adminbar .menu li a, #adminbar .shortcuts li a{
 		display: block;
-		background-color: #dbe9ee; border-top: 1px solid #e6f0f3; border-bottom: 1px solid #cbdadf;
+		background-color: rgba(0,0,0,0.8);
 		color: black; font-weight: bold; text-decoration: none; text-shadow: 0px 1px 0px white;
 	}
 	#adminbar .menu li a:hover, #adminbar .shortcuts li a:hover{
-		background-color: #f3008b; border-top: 1px solid #fa99d1; border-bottom: 1px solid #c2006f;
 		color: white; text-shadow: 0px 1px 0px rgba(0,0,0,.4);
 	}
 
 	/* main box (the one that holds data when NOT collapsed) */
 	#adminbar .main {
 		overflow: hidden; left: -200px; width: 259px; position: absolute; z-index: 999;
-		background: #dbe9ee; border-bottom: 1px solid #3e545b; border-right: 1px solid #3e545b;
+		background: #dbe9ee; border-right: 1px solid #3e545b;
 	}
 
 	/* logged in user bar */
@@ -59,7 +58,7 @@
 	/* menu */
 	#adminbar li a{
 		display: block; padding: 5px 5px 5px 35px;
-		background: url(sprites.png) no-repeat; border-bottom: 1px solid #61767c; text-shadow: 0px 1px 0px #3e545b;
+		background: url(sprites.png) no-repeat;  text-shadow: 0px 1px 0px #3e545b;
 	}
 		#adminbar .menu .edit { background-position: -63px -125px; }
 		#adminbar .menu .add { background-position: -63px -166px; }
@@ -68,16 +67,16 @@
 		#adminbar .menu .edit { background-position: -63px -125px; }
 
 	#adminbar .shortcuts{ left: 0px; top: 40px; width: 40px; position: absolute; z-index: 999; }
-	#adminbar .shortcuts li a{ padding: 20px; height: 20px; width: 20px; text-indent: -9999px; }
-		#adminbar .shortcuts .edit { background-image: url(pen_32x32.png); background-position: 16px 16px; }
-		#adminbar .shortcuts .add { background-image: url(plus_alt_32x32.png); background-position: 16px 16px; }
+	#adminbar .shortcuts li a{ padding: 8px; height: 20px; width: 20px; text-indent: -9999px; }
+		#adminbar .shortcuts .edit { background-image: url(Edit-16x16.png); background-position: center center }
+		#adminbar .shortcuts .add { background-image: url(Add-16x16.png); background-position: center center}
 		#adminbar .shortcuts .pages { background-position: 0 -80px; }
 		#adminbar .shortcuts .hide { background: #dbe9ee; height: 18px; padding: 1px 20px; font-size: 9px; text-transform: uppercase; font-weight: normal; text-indent: inherit; }
 
 	/* Tooltip */
 	#adminbar .tooltip {
 		position: absolute;
-		left: 80px;
+		left: -44440px;
 		top: 120px;
 		padding: 5px 10px 5px 3px;
 		background: #3e545b;
@@ -87,6 +86,7 @@
 	}
 		#adminbar .tooltip .arrow {
 			position: absolute;
+			display: none;
 			top: 0;
 			left: -30px;
 			border-color: transparent #3e545b transparent transparent;
@@ -109,13 +109,20 @@
 
 #ab-pagesaved {
   margin: 0 auto;
-  width: 400px;
-  height: 20px;
-  padding: 15px;
+  width: auto;
+	position:absolute;
+	right:0px;
+	top:0;
+  height: 15px;
+  padding: 4px 10px;
+padding-bottom: 8px;
   font-weight: bold;
-  background: #dbe9ee;
-  border: 1px solid #3e545b;
+  background: #FFF1A8;
   border-top: none;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000;
+	font-size: 13px;
+	font-style:normal;
 }
 
 
@@ -134,10 +141,13 @@
 #ab-modal {
   position: fixed;
   z-index: 999;
-  top: 50px;
+  top: 40px;
   left: 10%;
   right: 10%;
-  border: 10px solid #dbe9ee;
+	border: 1px solid rgba(0,0,0,0.8);
+	-webkit-box-shadow:3px 3px 5px rgba(0,0,0,0.3);
+	box-shadow:3px 3px 5px rgba(0,0,0,0.3);
+	
   text-align: center;
   background: white;
 }
@@ -147,10 +157,14 @@
 	font-family: arial;
 	font-size: 12px;
 	line-height: 12px;
-	left: 20px;
-	top: -37px;
-	padding: 7px 12px 5px;
-	background: #93acba;
+	right: -18px;
+	cursor: pointer;
+	top: -18px;
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
+	background-image: url(close.png);
+	background-repeat: no-repeat;
 	color: #fff;
 	-webkit-border-top-right-radius: 5px;
 	-webkit-border-top-left-radius: 5px;
@@ -166,11 +180,11 @@
 	line-height: 15px;
 }
 
-#ab-close-modal:hover {
+/*#ab-close-modal:hover {
 	cursor: pointer;
 	background: #f3008b;
 	color: black;
-}
+}*/
 
 .ab-modal-closed {
   display: none;
